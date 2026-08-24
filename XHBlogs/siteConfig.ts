@@ -69,3 +69,5 @@ export const siteConfig = {
   friendLinkApplyFormat: "名称：\n简介：\n链接：\n头像：",
   enableLevelSystem: true,
 };
+
+// redeploy trigger
