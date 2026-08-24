@@ -170,33 +170,28 @@ export default function CyberCat() {
             .cat-sprite {
               width: 100%;
               height: 100%;
-              background-image: url('/siamese-cat.png'); 
-              background-size: 300% 300%; 
+              background-image: url('/orange-cat.jpg'); 
+              background-size: 100% 100%; 
               background-repeat: no-repeat;
               image-rendering: pixelated;
-              /* 橘猫配色：暹罗猫灰棕 → 暖橘白（参考像素橘猫） */
-              filter: sepia(0.42) saturate(2.1) hue-rotate(-12deg) brightness(1.18) contrast(1.03);
             }
             .cat-idle {
-              animation: idle-frames 1.2s infinite;
-              background-position-y: 0%; 
+              animation: cat-breathe 2.5s ease-in-out infinite;
             }
             .cat-petted {
-              animation: pet-frames 0.8s infinite;
-              background-position-y: 50%; 
+              animation: cat-happy 0.6s ease-in-out infinite;
             }
             .cat-thinking {
-              animation: idle-frames 0.6s infinite;
-              background-position-y: 0%; 
+              animation: cat-breathe 1.2s ease-in-out infinite;
             }
-            @keyframes idle-frames {
-              0%, 33.32% { background-position-x: 0%; }
-              33.33%, 66.65% { background-position-x: 50%; }
-              66.66%, 100% { background-position-x: 100%; }
+            @keyframes cat-breathe {
+              0%, 100% { transform: scale(1); }
+              50% { transform: scale(1.03); }
             }
-            @keyframes pet-frames {
-              0%, 49.99% { background-position-x: 0%; }
-              50%, 100% { background-position-x: 50%; }
+            @keyframes cat-happy {
+              0%, 100% { transform: scale(1) rotate(0deg); }
+              25% { transform: scale(1.06) rotate(-3deg); }
+              75% { transform: scale(1.06) rotate(3deg); }
             }
           `}</style>
           <div className={`cat-sprite drop-shadow-2xl ${isPetted ? 'cat-petted' : isThinking ? 'cat-thinking' : 'cat-idle'}`} />
