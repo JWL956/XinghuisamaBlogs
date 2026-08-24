@@ -174,8 +174,8 @@ export default function CyberCat() {
               background-size: 300% 300%; 
               background-repeat: no-repeat;
               image-rendering: pixelated;
-              /* 橘猫配色：暹罗猫灰棕 → 橘白 */
-              filter: sepia(0.55) saturate(2.8) hue-rotate(-18deg) brightness(1.12) contrast(1.05);
+              /* 橘猫配色：暹罗猫灰棕 → 暖橘白（参考像素橘猫） */
+              filter: sepia(0.42) saturate(2.1) hue-rotate(-12deg) brightness(1.18) contrast(1.03);
             }
             .cat-idle {
               animation: idle-frames 1.2s infinite;
