@@ -33,10 +33,10 @@ export default function CyberCat() {
 
   // --- 🐟 交互事件：喂小鱼干 ---
   const handleFeed = async (e: React.MouseEvent) => {
-    e.stopPropagation(); // 阻止触发摸猫或拖拽
+    e.stopPropagation();
     if (isThinking) return;
 
-    setShowInput(false); // 喂食时关掉输入框
+    setShowInput(false);
     setIsThinking(true);
     speak("嗷呜！真好吃喵！本喵吃饱了要说两句...", 6000);
 
@@ -96,6 +96,7 @@ export default function CyberCat() {
       "我的小鱼干藏哪里去了？",
       "怎么没人理本喵...",
     ];
+
     const randomTalkInterval = setInterval(() => {
       if (!speech && !showInput && !isThinking && Math.random() > 0.8) {
         const randomMsg = randomBarks[Math.floor(Math.random() * randomBarks.length)];
@@ -105,7 +106,6 @@ export default function CyberCat() {
 
     return () => clearInterval(randomTalkInterval);
   }, [speech, showInput, isThinking]);
-
 
   return (
     <motion.div
@@ -135,17 +135,14 @@ export default function CyberCat() {
 
       {/* 🐈 猫咪本体 & 交互按钮区 */}
       <div className="relative">
-
-        {/* 🌟 核心修改区：去掉了 opacity-0 和 group-hover，让按钮常驻显示 */}
+        {/* 按钮区 */}
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-20">
-
             {/* 💬 聊天按钮 */}
             <button
               onClick={(e) => {
                  e.stopPropagation();
                  setShowInput(!showInput);
               }}
-              // 稍微加了一点半透明背景，让常驻按钮在深色背景下也好看
               className="bg-white/90 dark:bg-slate-700/90 p-2.5 rounded-full shadow-md hover:scale-110 active:scale-95 transition-transform border border-gray-100 dark:border-slate-600 text-blue-500 hover:text-blue-600 flex items-center justify-center backdrop-blur-sm"
               title="聊天"
             >
@@ -153,7 +150,6 @@ export default function CyberCat() {
                 <path fillRule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clipRule="evenodd" />
               </svg>
             </button>
-
             {/* 🐟 喂食按钮 */}
             <button
               onClick={handleFeed}
@@ -165,7 +161,7 @@ export default function CyberCat() {
             </button>
         </div>
 
-        {/* 猫咪图片容器 */}
+        {/* 猫咪图片容器 - 橘猫配色滤镜 */}
         <div
           className="w-[120px] h-[120px] relative cursor-pointer"
           onClick={handlePetCat}
@@ -177,7 +173,9 @@ export default function CyberCat() {
               background-image: url('/siamese-cat.png'); 
               background-size: 300% 300%; 
               background-repeat: no-repeat;
-              image-rendering: pixelated; 
+              image-rendering: pixelated;
+              /* 橘猫配色：暹罗猫灰棕 → 橘白 */
+              filter: sepia(0.55) saturate(2.8) hue-rotate(-18deg) brightness(1.12) contrast(1.05);
             }
             .cat-idle {
               animation: idle-frames 1.2s infinite;
@@ -219,7 +217,7 @@ export default function CyberCat() {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="跟煤球说点啥喵..."
+              placeholder="跟曲多多说点啥喵..."
               className="bg-transparent border-none outline-none text-sm px-3 py-1 w-full dark:text-white placeholder-gray-400"
               disabled={isThinking}
               autoFocus
