@@ -1,0 +1,7 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "buildCommand": "cd XHBlogs && npm install && npm run build",
+    "outputDirectory": "XHBlogs/.next",
+    "framework": "nextjs",
+    "installCommand": "cd XHBlogs && npm install"
+}
