@@ -39,3 +39,25 @@ export const albums: Album[] = [
     ],
   },
 ];
+  {
+    id: "travel",
+    title: "菊次郎的夏天",
+    description: "电影瞬间",
+    cover: "adeadd0425a6d47c99d7c224b601b50f.jpg",
+    date: "2026-08-25",
+    photos: [
+      { url: "2532400448c5bdbb6a44bc14cecfc720.jpg", caption: "照片1" },
+      { url: "图片URL2", caption: "照片2" },
+    ],
+  },
+  {
+    id: "travel",
+    title: "旅行记录",
+    description: "记录旅途中的风景",
+    cover: "封面图片URL",
+    date: "2026-08-25",
+    photos: [
+      { url: "图片URL1", caption: "照片1" },
+      { url: "图片URL2", caption: "照片2" },
+    ],
+  },
