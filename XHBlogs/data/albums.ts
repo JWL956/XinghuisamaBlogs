@@ -6,7 +6,7 @@ export const albums: Album[] = [
     id: "daily-life",
     title: "横道世之介",
     description: "电影瞬间",
-    cover: "https://aka.doubaocdn.com/s/FYbyeln2qK",
+    cover: "https://raw.githubusercontent.com/JWL956/XinghuisamaBlogs/main/1111111.jpg",
     date: "2026-08-25",
     photos: [
       { url: "https://aka.doubaocdn.com/s/FYbyeln2qK", caption: "照片1" },
