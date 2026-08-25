@@ -170,7 +170,7 @@ export default function CyberCat() {
             .cat-sprite {
               width: 100%;
               height: 100%;
-              background-image: url('/orange-cat.png'); 
+              background-image: url('/cat-new.png'); 
               background-size: 100% 100%; 
               background-repeat: no-repeat;
               image-rendering: pixelated;
