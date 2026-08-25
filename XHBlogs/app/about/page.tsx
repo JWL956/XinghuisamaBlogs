@@ -42,7 +42,7 @@ function getDirActivities(dirName: string, typeLabel: '文章' | '杂谈' | '说
 export default async function AboutPage() {
   const fullPath = path.join(process.cwd(), 'app', 'about', 'about.md');
   let contentHtml = "博主很懒，还没有写自我介绍哦...";
-  let coverImage = "https://aka.doubaocdn.com/s/FYbyeln2qK";
+  let coverImage = "https://raw.githubusercontent.com/JWL956/XinghuisamaBlogs/main/XHBlogs/public/photo1/A6.jpg";
 
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
