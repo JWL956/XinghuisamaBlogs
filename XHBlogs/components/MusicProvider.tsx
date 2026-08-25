@@ -82,6 +82,19 @@ export function MusicProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let isMounted = true;
+        if (siteConfig.localMusic && siteConfig.localMusic.length > 0) {
+      const localPlaylist = siteConfig.localMusic.map((song: any) => ({
+        id: song.id || Math.random().toString(),
+        title: song.title || '未知歌曲',
+        artist: song.artist || '未知歌手',
+        cover: song.cover || 'https://bu.dusays.com/2026/03/24/69c24230a5ff8.jpg',
+        src: song.src,
+        lrcUrl: song.lrcUrl || null,
+        lyrics: song.lyrics || [],
+      }));
+      if (isMounted) { setPlaylist(localPlaylist); setIsLoading(false); }
+      return () => { isMounted = false; };
+    }
     // 🌟 优先使用本地音乐配置
     if (siteConfig.localMusic && siteConfig.localMusic.length > 0) {
       const localPlaylist = siteConfig.localMusic.map((song: any) => ({
