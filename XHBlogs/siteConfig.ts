@@ -28,7 +28,7 @@ export const siteConfig = {
   defaultPostCover: "",
 
   // 5. 首页照片墙预览图
-  photoWallImage: "/photos/photo1.jpg",
+  photoWallImage: "https://aka.doubaocdn.com/s/FYbyeln2qK",
   cloudMusicIds: ["1824020514", "185809", "1901371647", "108104", "386538"],
   social: {
     github: "JWL956",
