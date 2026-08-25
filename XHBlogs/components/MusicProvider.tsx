@@ -82,7 +82,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let isMounted = true;
-        // 🌟 优先使用本地音乐配置
+    // 🌟 优先使用本地音乐配置
     if (siteConfig.localMusic && siteConfig.localMusic.length > 0) {
       const localPlaylist = siteConfig.localMusic.map((song: any) => ({
         id: song.id || Math.random().toString(),
