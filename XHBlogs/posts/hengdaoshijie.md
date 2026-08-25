@@ -2,7 +2,7 @@
 title: "治愈孤独迷茫的电影 | 其实不一定要给人生上价值"
 date: "2026-08-25 12:00:00"
 description: "《横道世之介》影评——平凡人生的价值"
-cover: "https://aka.doubaocdn.com/s/rmDTVuip9m"
+cover: "cover: "https://raw.githubusercontent.com/JWL956/XinghuisamaBlogs/main/1111111.jpg""
 tags: ["电影", "影评", "治愈"]
 ---
 
