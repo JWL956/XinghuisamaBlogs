@@ -38,7 +38,6 @@ export const albums: Album[] = [
       { url: "https://aka.doubaocdn.com/s/tU3XcX7Cwq", caption: "照片27" },
     ],
   },
-];
  {
     id: "life",
     title: "菊次郎的夏天",
