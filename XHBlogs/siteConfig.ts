@@ -28,8 +28,8 @@ export const siteConfig = {
   defaultPostCover: "",
 
   // 5. 首页照片墙预览图
-  photoWallImage: "",
-  cloudMusicIds: [],
+  photoWallImage: "/photos/photo1.jpg",
+  cloudMusicIds: ["1824020514", "185809", "1901371647", "108104", "386538"],
   social: {
     github: "JWL956",
     gitee: "",
@@ -39,7 +39,7 @@ export const siteConfig = {
     wechat: "J56-o821",
   },
   counts: {
-    photos: 0, // 照片墙数量可以手动写死或动态计算
+    photos: 5, // 照片墙数量可以手动写死或动态计算
   },
   chatterTitle: "云端杂谈", // 你可以改成任何你喜欢的名字
   chatterDescription: "记录生活与思考",
