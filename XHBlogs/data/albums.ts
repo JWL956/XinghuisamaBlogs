@@ -97,4 +97,15 @@ export const albums: Album[] = [
       { url: "https://aka.doubaocdn.com/s/JcJcElJv8O", caption: "照片78" },
     ],
   },
+   {
+    id: "life1",
+    title: "曲多多",
+    description: "日常",
+    cover: "https://aka.doubaocdn.com/s/VXWfMrBbap",
+    date: "2026-08-25",
+    photos: [
+      { url: "https://aka.doubaocdn.com/s/JnUBWSfR2n", caption: "照片29" },
+      { url: "https://aka.doubaocdn.com/s/mZvRLXMu4Y", caption: "照片30" },
+   ],
+ },
 ];
