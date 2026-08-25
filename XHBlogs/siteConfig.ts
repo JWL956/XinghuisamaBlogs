@@ -2,12 +2,12 @@
 
 export const siteConfig = {
   // 1. 网站标题与博主信息
-  title: "一叶秋的博客",
+  title: "956 的博客",
   faviconUrl: "",
-  authorName: "一叶秋",
+  authorName: "956",
   bio: "记录与分享",
 
-  navTitle: "一叶秋",
+  navTitle: "956",
 
   // 👇 【新增】导航栏中间的那个后缀/分隔符（默认是 の）
   navSuffix: "の",
@@ -34,9 +34,9 @@ export const siteConfig = {
     github: "JWL956",
     gitee: "",
     google: "",
-    email: "",
-    qq: "",
-    wechat: "",
+    email: "2425591445@qq.com",
+    qq: "2425591445",
+    wechat: "J56-o821",
   },
   counts: {
     photos: 0, // 照片墙数量可以手动写死或动态计算
