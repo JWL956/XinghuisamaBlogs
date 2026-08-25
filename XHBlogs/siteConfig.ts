@@ -29,7 +29,14 @@ export const siteConfig = {
 
   // 5. 首页照片墙预览图
   photoWallImage: "https://aka.doubaocdn.com/s/FYbyeln2qK",
-  cloudMusicIds: ["1824020514", "185809", "1901371647", "108104", "386538"],
+  cloudMusicIds: [],
+  localMusic: [
+    { id: "song1", title: "晴天", artist: "周杰伦", cover: "https://aka.doubaocdn.com/s/dU1UfpU9mr", src: "https://aka.doubaocdn.com/s/WddxIM2ET9", lrcUrl: "https://aka.doubaocdn.com/s/upBU4Lm9Ir" },
+    { id: "song2", title: "花海", artist: "周杰伦", cover: "https://aka.doubaocdn.com/s/dU1UfpU9mr", src: "https://aka.doubaocdn.com/s/AYI72AHMXA", lrcUrl: "https://aka.doubaocdn.com/s/zCbHi0Engn" },
+    { id: "song3", title: "遇见", artist: "孙燕姿", cover: "https://aka.doubaocdn.com/s/OfpcTrwIio", src: "https://aka.doubaocdn.com/s/142RVPV6hr", lrcUrl: "https://aka.doubaocdn.com/s/bN8mhju2J3" },
+    { id: "song4", title: "红色高跟鞋", artist: "蔡健雅", cover: "https://aka.doubaocdn.com/s/pSNLKkfEF4", src: "https://aka.doubaocdn.com/s/2OeBcqACEx", lrcUrl: "https://aka.doubaocdn.com/s/JIMKG7aavq" },
+    { id: "song5", title: "我不难过", artist: "孙燕姿", cover: "https://aka.doubaocdn.com/s/OfpcTrwIio", src: "https://aka.doubaocdn.com/s/jEXOjiFXNd", lrcUrl: "https://aka.doubaocdn.com/s/bepSP9aiCM" },
+  ],
   social: {
     github: "JWL956",
     gitee: "",
