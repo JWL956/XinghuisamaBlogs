@@ -2,7 +2,7 @@
 export interface Chatter { id: string; title: string; date: string; tags: string[]; mood: string; cover: string; description: string; content: string; }
 export const chatters: Chatter[] = [
   {
-    "id": "chatter2",
+    "slug": "chatter2",
     "title": "横道世之介",
     "date": "2026-08-25 12:00:00",
     "tags": ["日常", "电影"],
