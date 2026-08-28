@@ -1,14 +1,28 @@
 // app/api/admin/sync/route.ts
-// 在线保存：把照片墙(albums)或项目(projects)数据写回仓库，触发 Vercel 自动重新构建
+// 在线保存：把各栏目数据写回仓库，触发 Vercel 自动重新构建
 import { NextRequest } from 'next/server';
 import {
       checkAdmin,
       putFile,
       buildAlbumsTs,
       buildProjectsTs,
+      buildChattersTs,
+      buildMomentsTs,
+      buildMusicTs,
       ALBUMS_PATH,
       PROJECTS_PATH,
+      CHATTERS_PATH,
+      MOMENTS_PATH,
+      MUSIC_PATH,
 } from '../../../../lib/github';
+
+const TYPES: Record<string, { path: string; builder: (d: unknown[]) => string; label: string }> = {
+      albums: { path: ALBUMS_PATH, builder: buildAlbumsTs, label: '🖼️ 在线更新照片墙' },
+      projects: { path: PROJECTS_PATH, builder: buildProjectsTs, label: '🚀 在线更新项目' },
+      chatters: { path: CHATTERS_PATH, builder: buildChattersTs, label: '💬 在线更新杂谈' },
+      moments: { path: MOMENTS_PATH, builder: buildMomentsTs, label: '📝 在线更新说说' },
+      music: { path: MUSIC_PATH, builder: buildMusicTs, label: '🎵 在线更新音乐' },
+};
 
 export async function POST(req: NextRequest) {
       if (!checkAdmin(req)) {
@@ -17,21 +31,18 @@ export async function POST(req: NextRequest) {
 
   try {
           const body = await req.json();
-          const type = body.type as string; // 'albums' | 'projects'
+          const type = body.type as string;
         const data = body.data as unknown[];
+        const conf = TYPES[type];
 
-        if (type !== 'albums' && type !== 'projects') {
-                  return Response.json({ error: 'type 必须是 albums 或 projects' }, { status: 400 });
+        if (!conf) {
+                  return Response.json({ error: 'type 必须是 albums / projects / chatters / moments / music' }, { status: 400 });
         }
           if (!Array.isArray(data)) {
                     return Response.json({ error: 'data 必须是数组' }, { status: 400 });
           }
 
-        if (type === 'albums') {
-                  await putFile(ALBUMS_PATH, buildAlbumsTs(data), '🖼️ 在线更新照片墙');
-        } else {
-                  await putFile(PROJECTS_PATH, buildProjectsTs(data), '🚀 在线更新项目');
-        }
+        await putFile(conf.path, conf.builder(data), conf.label);
 
         return Response.json({
                   success: true,
