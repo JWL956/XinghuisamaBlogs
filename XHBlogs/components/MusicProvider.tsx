@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useRef, useEffect, ReactNode } from 'react';
 import { siteConfig } from '../siteConfig';
+import { localMusic as localMusicData } from '../data/music';
 
 // 【增强版 LRC 歌词解析】
 function parseLrc(lrcText: string) {
@@ -82,8 +83,8 @@ export function MusicProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
   let isMounted = true;
-  if (siteConfig.localMusic && siteConfig.localMusic.length > 0) {
-    const localPlaylist = siteConfig.localMusic.map((song: any) => ({
+  if (localMusicData && localMusicData.length > 0) {
+    const localPlaylist = localMusicData.map((song: any) => ({
       id: song.id || Math.random().toString(),
       title: song.title || '未知歌曲',
       artist: song.artist || '未知歌手',
