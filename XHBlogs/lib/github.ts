@@ -100,6 +100,7 @@ export function buildProjectsTs(data: unknown[]): string {
 
 // 从 TS 文件内容中提取 export const xxx = [...] 的数组
 export function extractArray(content: string): unknown[] {
+      // 定位 export const xxx = [ 的数据数组（跳过 interface 里的 []）
       const eqBracket = content.indexOf('= [');
       let start = eqBracket !== -1 ? eqBracket + 2 : -1;
       if (start === -1) {
@@ -108,8 +109,13 @@ export function extractArray(content: string): unknown[] {
       }
       const end = content.lastIndexOf(']');
       if (start === -1 || end === -1 || end <= start) return [];
+      const rawArr = content.slice(start, end + 1);
+      // 兼容 TS 字面量：移除尾逗号 + 无引号 key 补引号，再按 JSON 解析
+      const jsonText = rawArr
+            .replace(/,([\s\r\n]*)([}\]])/g, '$1$2')
+            .replace(/([{,]\s*)([A-Za-z_$][\w$]*)(\s*:)/g, '$1"$2"$3');
       try {
-            return JSON.parse(content.slice(start, end + 1));
+            return JSON.parse(jsonText);
       } catch {
             return [];
       }
