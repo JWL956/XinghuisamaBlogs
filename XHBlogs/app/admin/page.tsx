@@ -134,8 +134,8 @@ export default function AdminPage() {
       );
       setChatterItems(
         chatters.map((c) => ({
-          key: c.id || genId(),
-          id: c.id || '',
+          key: c.slug || c.id || genId(),
+          id: c.slug || c.id || '',
           title: c.title || '',
           cover: c.cover || '',
           mood: c.mood || '',
@@ -259,7 +259,7 @@ export default function AdminPage() {
 
   function buildChatters(): any[] {
     return chatterItems.map((it) => ({
-      id: it.id || genId(),
+      slug: it.id || genId(),
       title: it.title.trim(),
       date: it.date || today(),
       tags: splitTags(it.tagsText),
