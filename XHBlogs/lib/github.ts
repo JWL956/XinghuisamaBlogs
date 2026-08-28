@@ -9,6 +9,9 @@ const BRANCH = 'main';
 export const ALBUMS_PATH = 'XHBlogs/data/albums.ts';
 export const PROJECTS_PATH = 'XHBlogs/data/projects.ts';
 export const PHOTO_DIR = 'XHBlogs/public/photo/upload';
+export const CHATTERS_PATH = 'XHBlogs/data/chatters.ts';
+export const MOMENTS_PATH = 'XHBlogs/data/moments.ts';
+export const MUSIC_PATH = 'XHBlogs/data/music.ts';
 
 function apiHeaders(): Record<string, string> {
     return {
@@ -99,6 +102,30 @@ export function buildProjectsTs(data: unknown[]): string {
 }
 
 // 从 TS 文件内容中提取 export const xxx = [...] 的数组
+export function buildChattersTs(data: unknown[]): string {
+    return (
+        '// 🛡️ 本文件由在线管理台自动生成，请勿手动修改\n' +
+        'export interface Chatter { id: string; title: string; date: string; tags: string[]; mood: string; cover: string; description: string; content: string; }\n' +
+        `export const chatters: Chatter[] = ${JSON.stringify(data, null, 2)};\n`
+    );
+}
+
+export function buildMomentsTs(data: unknown[]): string {
+    return (
+        '// 🛡️ 本文件由在线管理台自动生成，请勿手动修改\n' +
+        'export interface Moment { id: string; content: string; date: string; location: string; images: string[]; }\n' +
+        `export const moments: Moment[] = ${JSON.stringify(data, null, 2)};\n`
+    );
+}
+
+export function buildMusicTs(data: unknown[]): string {
+    return (
+        '// 🛡️ 本文件由在线管理台自动生成，请勿手动修改\n' +
+        'export interface Music { id: string; title: string; artist: string; cover: string; src: string; lrcText: string; }\n' +
+        `export const localMusic: Music[] = ${JSON.stringify(data, null, 2)};\n`
+    );
+}
+
 export function extractArray(content: string): unknown[] {
       // 定位 export const xxx = [ 的数据数组（跳过 interface 里的 []）
       const eqBracket = content.indexOf('= [');
