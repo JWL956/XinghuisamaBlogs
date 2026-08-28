@@ -100,12 +100,17 @@ export function buildProjectsTs(data: unknown[]): string {
 
 // 从 TS 文件内容中提取 export const xxx = [...] 的数组
 export function extractArray(content: string): unknown[] {
-    const start = content.indexOf('[');
-    const end = content.lastIndexOf(']');
-    if (start === -1 || end === -1 || end <= start) return [];
-    try {
-          return JSON.parse(content.slice(start, end + 1));
-    } catch {
-          return [];
-    }
+      const eqBracket = content.indexOf('= [');
+      let start = eqBracket !== -1 ? eqBracket + 2 : -1;
+      if (start === -1) {
+            const eq = content.indexOf('=');
+            if (eq !== -1) start = content.indexOf('[', eq);
+      }
+      const end = content.lastIndexOf(']');
+      if (start === -1 || end === -1 || end <= start) return [];
+      try {
+            return JSON.parse(content.slice(start, end + 1));
+      } catch {
+            return [];
+      }
 }
